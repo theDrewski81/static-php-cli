@@ -210,6 +210,11 @@ jobs:
           if [ ${{ inputs.build-fpm }} == true ]; then
               BUILD_CMD="$BUILD_CMD --build-fpm"
           fi
+          if [ ${{ inputs.build-fpm }} == true ]; then
+              BUILD_CMD="$BUILD_CMD --build-fpm"
+          fi
+          BUILD_CMD="$BUILD_CMD --build-cgi"
+
           if [ "$BUILD_FRANKENPHP" = "true" ]; then
               BUILD_CMD="$BUILD_CMD --build-frankenphp"
           fi
