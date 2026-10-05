@@ -305,10 +305,17 @@ jobs:
       # Upload fpm executable
       - if: ${{ inputs.build-fpm == true }}
         name: "Upload PHP fpm SAPI"
-        uses: actions/upload-artifact@v7
+        uses: actions/upload-artifact@v4
         with:
           name: php-fpm-${{ inputs.php-version }}-${{ inputs.os }}
           path: buildroot/bin/php-fpm
+
+      # Upload cgi executable
+      - name: "Upload PHP cgi SAPI"
+        uses: actions/upload-artifact@v4
+        with:
+          name: php-cgi-${{ inputs.php-version }}-${{ inputs.os }}
+          path: buildroot/bin/php-cgi
 
       # Upload frankenphp executable
       - if: ${{ inputs['build-frankenphp'] == true }}
